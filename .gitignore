@@ -4,3 +4,7 @@ dist/
 .env.*
 !.env.example
 .DS_Store
+
+# Browser extension build output
+extension/app/
+extension/icons/

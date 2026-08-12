@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
+    "generate:icons": "bun scripts/generate-icons.mjs",
+    "build:extension": "bun run generate:icons && vite build --config vite.extension.config.ts",
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {

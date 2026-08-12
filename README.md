@@ -134,6 +134,31 @@ bun run build
 
 The production build is emitted to `dist/` as static Vite output.
 
+### Browser extension (Chrome + Firefox)
+
+The same app can be packaged as a Manifest V3 browser extension. Clicking the toolbar icon opens the full app in a browser tab.
+
+Build it:
+
+```bash
+bun run build:extension
+```
+
+This generates the icon set and builds the app into `extension/app/`.
+
+Load in Chrome:
+
+1. Open `chrome://extensions`.
+2. Enable **Developer mode**.
+3. Click **Load unpacked** and select the `extension/` folder.
+
+Load in Firefox:
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click **Load Temporary Add-on** and select `extension/manifest.json`.
+
+Before publishing, set your own `browser_specific_settings.gecko.id` in `extension/manifest.json` (Firefox) and register as a Chrome Web Store developer (one-time $5 fee). Firefox Add-ons publishing is free. Everything runs locally in the browser tab; the only optional remote resource is the Google Fonts import, which falls back to system fonts when unavailable.
+
 ## Environment variables
 
 No environment variables are required.
@@ -153,9 +178,17 @@ There are no secrets, API keys, database connections, or service credentials use
 │   ├── index.css                # Shared theme plus both utility workspaces
 │   ├── main.tsx                 # React entrypoint
 │   └── vite-env.d.ts             # Vite client type declarations
+├── extension/
+│   ├── manifest.json             # Chrome + Firefox (MV3) manifest
+│   ├── background.js             # Toolbar click → open app in a tab
+│   ├── icons/                    # Generated icon set (gitignored)
+│   └── app/                      # Built extension page (gitignored)
+├── scripts/
+│   └── generate-icons.mjs        # Generates the extension PNG icons
 ├── index.html                    # Vite HTML entrypoint and page metadata
 ├── package.json                  # Scripts and dependencies
 ├── vite.config.ts                # React-enabled Vite configuration
+├── vite.extension.config.ts      # Relative-base build for the extension
 ├── tsconfig*.json                # TypeScript project configuration
 └── .gitignore                    # Dependency, build, and environment ignores
 ```
