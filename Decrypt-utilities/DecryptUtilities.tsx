@@ -169,7 +169,8 @@ function DecryptUtilities({ onBack }: { onBack: () => void }) {
       <div className="crypto-glow glow-a" />
       <div className="crypto-glow glow-b" />
       <header className="crypto-topbar">
-        <button className="crypto-brand" onClick={onBack} aria-label="Back to JSON Forge"><span className="crypto-brand-mark">⌘</span><span>developer<span>utilities</span></span></button>
+        <button className="crypto-back" onClick={onBack} type="button"><span className="crypto-back-arrow" aria-hidden="true">←</span><span className="crypto-back-label">Back to JSON Forge</span></button>
+        <div className="crypto-brand" aria-label="Developer utilities"><span className="crypto-brand-mark">⌘</span><span>developer<span>utilities</span></span></div>
         <div className="crypto-breadcrumb"><span>TOOLS</span><i>/</i><strong>DECRYPT-UTILITIES</strong></div>
         <div className="crypto-local"><span /> browser-only</div>
       </header>
