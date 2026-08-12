@@ -1,9 +1,10 @@
 # Developer Utilities
 
-Developer Utilities is a browser-first toolkit for common data tasks during development. It currently contains two focused workspaces:
+Developer Utilities is a browser-first toolkit for common data tasks during development. It currently contains three focused workspaces:
 
 - **JsonUtilities** — the JSON Utilities workbench for formatting, validation, transformation, and comparison.
 - **Decrypt-utilities** — a local encoding, encryption, decryption, and hashing desk.
+- **DateTimeUtilities** — a date and time desk for epoch timestamps, timezone conversion, and duration units.
 
 ## Utilities
 
@@ -65,9 +66,17 @@ AES operations expose a **Key / password** input. The current implementation acc
 
 Raw binary key import is not currently exposed in the UI. For integrations that already use a raw key, a future key-format mode can be added without changing the existing password format.
 
+### DateTimeUtilities / Date & time
+
+The date and time desk runs on the browser's `Intl` engine and your system clock — nothing is sent to a server.
+
+- **Epoch ↔ date** — Convert Unix timestamps (seconds or milliseconds) to ISO 8601, UTC, and local strings, and convert a date back into seconds and milliseconds.
+- **Timezone converter** — Enter a wall-clock time in any IANA timezone and see the same instant across 14 common zones with their current UTC offsets.
+- **Unit converter** — Convert durations between nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days, weeks, and average months/years.
+
 ## Privacy and security
 
-- All JSON and crypto processing happens in the browser tab.
+- All JSON, crypto, and date/time processing happens in the browser tab.
 - There is no backend, authentication, database, API integration, analytics, or account requirement.
 - No payloads, passwords, keys, salts, or IVs are uploaded or saved by the app.
 - AES salts and IVs are generated with the browser's secure random source and are included in the encrypted output so the payload is self-contained.
@@ -83,6 +92,7 @@ The only external resource referenced by the page is Google Fonts. If font loadi
 - TypeScript
 - Vite
 - Browser Web Crypto API
+- Browser `Intl` API for timezone and date formatting
 - Plain CSS with responsive media queries
 - Bun for package installation and scripts
 
@@ -173,9 +183,11 @@ There are no secrets, API keys, database connections, or service credentials use
 │   └── JsonWorkbench.tsx        # JSON Utilities workbench and JSON operations
 ├── Decrypt-utilities/
 │   └── DecryptUtilities.tsx     # Base64, AES-GCM, AES-CBC, and SHA-256 tools
+├── DateTimeUtilities/
+│   └── DateTimeUtilities.tsx    # Epoch, timezone, and duration converters
 ├── src/
 │   ├── App.tsx                  # Top-level utility switcher
-│   ├── index.css                # Shared theme plus both utility workspaces
+│   ├── index.css                # Shared theme plus all three utility workspaces
 │   ├── main.tsx                 # React entrypoint
 │   └── vite-env.d.ts             # Vite client type declarations
 ├── extension/

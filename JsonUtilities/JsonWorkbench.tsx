@@ -19,6 +19,7 @@ type IconName =
   | 'chevron'
   | 'x'
   | 'upload'
+  | 'clock'
 
 type Operation = 'format' | 'minify' | 'sort' | 'validate' | 'encode' | 'decode'
 type Mode = 'workbench' | 'compare'
@@ -89,6 +90,7 @@ const iconPaths: Record<IconName, string[]> = {
   chevron: ['M7 10l5 5 5-5'],
   x: ['M6 6l12 12M18 6L6 18'],
   upload: ['M12 16V4', 'M8 8l4-4 4 4', 'M5 15v4h14v-4'],
+  clock: ['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z', 'M12 7v5l3.5 2'],
 }
 
 function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
@@ -185,7 +187,7 @@ function formatBytes(value: number) {
   return `${(value / 1024).toFixed(1)} KB`
 }
 
-function JsonWorkbench({ onOpenDecrypt }: { onOpenDecrypt: () => void }) {
+function JsonWorkbench({ onOpenDecrypt, onOpenDateTime }: { onOpenDecrypt: () => void; onOpenDateTime: () => void }) {
   const [mode, setMode] = useState<Mode>('workbench')
   const [operation, setOperation] = useState<Operation>('format')
   const [input, setInput] = useState(sampleJson)
@@ -308,6 +310,7 @@ function JsonWorkbench({ onOpenDecrypt }: { onOpenDecrypt: () => void }) {
           <button className={mode === 'workbench' ? 'nav-link active' : 'nav-link'} onClick={() => setMode('workbench')}><Icon name="terminal" size={15} /> Workbench</button>
           <button className={mode === 'compare' ? 'nav-link active' : 'nav-link'} onClick={() => setMode('compare')}><Icon name="compare" size={15} /> Compare</button>
           <button className="nav-link" onClick={onOpenDecrypt}><Icon name="shield" size={15} /> Decrypt utilities</button>
+          <button className="nav-link" onClick={onOpenDateTime}><Icon name="clock" size={15} /> Date &amp; time</button>
           <a className="nav-link" href="#guide"><Icon name="book" size={15} /> Field guide</a>
         </nav>
         <div className="topbar-end"><span className="local-dot" /> 100% local <button className="icon-button" title="Reset workbench" onClick={reset}><Icon name="refresh" size={16} /></button></div>
