@@ -270,7 +270,7 @@ function JsonWorkbench({ onOpenDecrypt }: { onOpenDecrypt: () => void }) {
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = 'json-forge-output.json'
+    link.download = 'json-utilities-output.json'
     link.click()
     URL.revokeObjectURL(url)
   }
@@ -299,9 +299,9 @@ function JsonWorkbench({ onOpenDecrypt }: { onOpenDecrypt: () => void }) {
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="JSON Forge home">
+        <a className="brand" href="#top" aria-label="JSON Utilities home">
           <span className="brand-mark"><Icon name="braces" size={20} /></span>
-          <span>json<span className="brand-accent">forge</span></span>
+          <span>json<span className="brand-accent">utilities</span></span>
           <span className="beta-tag">BETA</span>
         </a>
         <nav className="topnav" aria-label="Main navigation">
@@ -397,9 +397,9 @@ function JsonWorkbench({ onOpenDecrypt }: { onOpenDecrypt: () => void }) {
           </div>
         </section>
 
-        <section className="closing section-wrap"><div className="closing-inner"><div className="closing-mark"><Icon name="spark" size={26} /></div><div><p className="section-kicker">YOUR DATA, YOUR TAB</p><h2>Good tools get out<br />of the way.</h2></div><p className="closing-copy">JSON Forge runs entirely in your browser. Your payloads never leave your machine, so you can work with real data without turning privacy into another task.</p><button className="secondary-button" onClick={() => { setMode('workbench'); document.getElementById('workbench')?.scrollIntoView({ behavior: 'smooth' }) }}>Start shaping JSON <Icon name="arrow" size={16} /></button></div></section>
+        <section className="closing section-wrap"><div className="closing-inner"><div className="closing-mark"><Icon name="spark" size={26} /></div><div><p className="section-kicker">YOUR DATA, YOUR TAB</p><h2>Good tools get out<br />of the way.</h2></div><p className="closing-copy">JSON Utilities runs entirely in your browser. Your payloads never leave your machine, so you can work with real data without turning privacy into another task.</p><button className="secondary-button" onClick={() => { setMode('workbench'); document.getElementById('workbench')?.scrollIntoView({ behavior: 'smooth' }) }}>Start shaping JSON <Icon name="arrow" size={16} /></button></div></section>
       </main>
-      <footer className="footer section-wrap"><span className="footer-brand"><span className="brand-mark small"><Icon name="braces" size={15} /></span> json<span className="brand-accent">forge</span></span><span>Made for the in-between moments of development.</span><span className="footer-right"><span className="local-dot" /> Runs locally in your browser</span></footer>
+      <footer className="footer section-wrap"><span className="footer-brand"><span className="brand-mark small"><Icon name="braces" size={15} /></span> json<span className="brand-accent">utilities</span></span><span>Made for the in-between moments of development.</span><span className="footer-right"><span className="local-dot" /> Runs locally in your browser</span></footer>
     </div>
   )
 }
