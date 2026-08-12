@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "json-forge",
+      "name": "json-utilities",
       "dependencies": {
         "@vitejs/plugin-react": "latest",
         "react": "latest",

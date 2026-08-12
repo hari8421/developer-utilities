@@ -62,7 +62,7 @@ async function decryptText(value: string, password: string, algorithm: Algorithm
   const packed = base64ToBytes(value)
   const ivLength = algorithm === 'AES-GCM' ? 12 : 16
   const minimumLength = 16 + ivLength + 1
-  if (packed.length < minimumLength) throw new Error('This does not look like a JSON Forge encrypted payload.')
+  if (packed.length < minimumLength) throw new Error('This does not look like a JSON Utilities encrypted payload.')
   const salt = packed.slice(0, 16)
   const iv = packed.slice(16, 16 + ivLength)
   const ciphertext = packed.slice(16 + ivLength)
@@ -169,7 +169,7 @@ function DecryptUtilities({ onBack }: { onBack: () => void }) {
       <div className="crypto-glow glow-a" />
       <div className="crypto-glow glow-b" />
       <header className="crypto-topbar">
-        <button className="crypto-back" onClick={onBack} type="button"><span className="crypto-back-arrow" aria-hidden="true">←</span><span className="crypto-back-label">Back to JSON Forge</span></button>
+        <button className="crypto-back" onClick={onBack} type="button"><span className="crypto-back-arrow" aria-hidden="true">←</span><span className="crypto-back-label">Back to JSON Utilities</span></button>
         <div className="crypto-brand" aria-label="Developer utilities"><span className="crypto-brand-mark">⌘</span><span>developer<span>utilities</span></span></div>
         <div className="crypto-breadcrumb"><span>TOOLS</span><i>/</i><strong>DECRYPT-UTILITIES</strong></div>
         <div className="crypto-local"><span /> browser-only</div>
@@ -214,9 +214,9 @@ function DecryptUtilities({ onBack }: { onBack: () => void }) {
           </div>
         </section>
 
-        <section className="crypto-notes"><article><span>01</span><div><h3>Encoding is not encryption</h3><p>Base64 makes binary or Unicode data transport-safe, but anyone can decode it. Reach for AES when confidentiality matters.</p></div></article><article><span>02</span><div><h3>Password in, key out</h3><p>AES modes derive a 256-bit key from your password using PBKDF2. Every encryption gets a fresh salt and IV.</p></div></article><article><span>03</span><div><h3>Decryption needs the recipe</h3><p>Use the same algorithm and password used for encryption. JSON Forge packages the salt and IV into the Base64 result automatically.</p></div></article></section>
+        <section className="crypto-notes"><article><span>01</span><div><h3>Encoding is not encryption</h3><p>Base64 makes binary or Unicode data transport-safe, but anyone can decode it. Reach for AES when confidentiality matters.</p></div></article><article><span>02</span><div><h3>Password in, key out</h3><p>AES modes derive a 256-bit key from your password using PBKDF2. Every encryption gets a fresh salt and IV.</p></div></article><article><span>03</span><div><h3>Decryption needs the recipe</h3><p>Use the same algorithm and password used for encryption. JSON Utilities packages the salt and IV into the Base64 result automatically.</p></div></article></section>
       </main>
-      <footer className="crypto-footer"><button onClick={onBack}>← JSON Forge</button><span>Browser-native Web Crypto · no server · no account</span><span>developer-utilities / decrypt-utilities</span></footer>
+      <footer className="crypto-footer"><button onClick={onBack}>← JSON Utilities</button><span>Browser-native Web Crypto · no server · no account</span><span>developer-utilities / decrypt-utilities</span></footer>
     </div>
   )
 }

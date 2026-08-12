@@ -2,14 +2,12 @@
 
 Developer Utilities is a browser-first toolkit for common data tasks during development. It currently contains two focused workspaces:
 
-- **JsonUtilties** — the existing JSON Forge workbench for formatting, validation, transformation, and comparison.
+- **JsonUtilities** — the JSON Utilities workbench for formatting, validation, transformation, and comparison.
 - **Decrypt-utilities** — a local encoding, encryption, decryption, and hashing desk.
-
-The folder name `JsonUtilties` intentionally matches the requested spelling.
 
 ## Utilities
 
-### JsonUtilties / JSON Forge
+### JsonUtilities / JSON Utilities
 
 The JSON workbench accepts any valid JSON value: objects, arrays, strings, numbers, booleans, or `null`.
 
@@ -21,7 +19,7 @@ The JSON workbench accepts any valid JSON value: objects, arrays, strings, numbe
 - **Unescape** — Parse a quoted JSON string and resolve its escape sequences back into readable text.
 - **Compare** — Compare two documents recursively and report changed, added, removed, and matching values with JSON paths such as `$.limits.timeoutMs` and `$.regions[1].name`.
 - **Copy output** — Copy transformed JSON to the clipboard.
-- **Download output** — Save transformed output as `json-forge-output.json`.
+- **Download output** — Save transformed output as `json-utilities-output.json`.
 - **Samples and reset** — Start from API response, feature flag, or package configuration samples.
 - **Live editor details** — See syntax state, line counts, and byte counts while editing.
 
@@ -146,8 +144,8 @@ There are no secrets, API keys, database connections, or service credentials use
 
 ```text
 .
-├── JsonUtilties/
-│   └── JsonWorkbench.tsx        # JSON Forge workbench and JSON operations
+├── JsonUtilities/
+│   └── JsonWorkbench.tsx        # JSON Utilities workbench and JSON operations
 ├── Decrypt-utilities/
 │   └── DecryptUtilities.tsx     # Base64, AES-GCM, AES-CBC, and SHA-256 tools
 ├── src/

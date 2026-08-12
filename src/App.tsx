@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import JsonWorkbench from '../JsonUtilties/JsonWorkbench'
+import JsonWorkbench from '../JsonUtilities/JsonWorkbench'
 import DecryptUtilities from '../Decrypt-utilities/DecryptUtilities'
 
 type Utility = 'json' | 'decrypt'
