@@ -136,7 +136,7 @@ The production build is emitted to `dist/` as static Vite output.
 
 ### Browser extension (Chrome + Firefox)
 
-The same app can be packaged as a Manifest V3 browser extension. Clicking the toolbar icon opens the full app in a browser tab.
+The same app can be packaged as a Manifest V3 browser extension. Clicking the toolbar icon opens the full app in a browser tab. See `extension/README.md` for the full build, load, and publish walkthrough.
 
 Build it:
 
