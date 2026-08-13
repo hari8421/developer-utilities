@@ -73,6 +73,7 @@ The date and time desk runs on the browser's `Intl` engine and your system clock
 - **Epoch ↔ date** — Convert Unix timestamps (seconds or milliseconds) to ISO 8601, UTC, and local strings, and convert a date back into seconds and milliseconds.
 - **Timezone converter** — Enter a wall-clock time in any IANA timezone and see the same instant across 14 common zones with their current UTC offsets.
 - **Unit converter** — Convert durations between nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days, weeks, and average months/years.
+- **Date arithmetic** — Add or subtract minutes, hours, days, weeks, months, or years from any date/time, and find the nth weekday (e.g. 2nd Friday) before or after a date.
 
 ## Privacy and security
 

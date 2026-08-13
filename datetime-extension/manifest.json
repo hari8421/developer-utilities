@@ -3,7 +3,7 @@
   "name": "Date & Time Utilities",
   "short_name": "Date & Time",
   "version": "1.0.0",
-  "description": "Convert Unix timestamps, timezones, and durations — 100% local.",
+  "description": "Convert Unix timestamps, timezones, and durations, plus date arithmetic — 100% local.",
   "action": {
     "default_title": "Open Date & Time Utilities",
     "default_icon": {

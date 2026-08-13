@@ -1,6 +1,6 @@
 # Date & Time Utilities — Browser Extension
 
-Chrome and Firefox (Manifest V3) packaging for the [Date & Time Utilities](../README.md#datetimeutilities--date--time) workspace. Clicking the toolbar icon opens the date/time desk — Unix timestamps, timezone conversion, and duration units — in a browser tab, entirely local to your machine.
+Chrome and Firefox (Manifest V3) packaging for the [Date & Time Utilities](../README.md#datetimeutilities--date--time) workspace. Clicking the toolbar icon opens the date/time desk — Unix timestamps, timezone conversion, duration units, and date arithmetic — in a browser tab, entirely local to your machine.
 
 ## Prerequisites
 
