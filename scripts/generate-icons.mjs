@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const outDir = join(root, 'extension', 'icons')
+const outDir = join(root, 'extensions', 'developer-utilities', 'icons')
 
 // Brand colors: teal rounded square with a dark curly-brace mark.
 const BG = [115, 214, 193] // #73d6c1

@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const outDir = join(root, 'datetime-extension', 'icons')
+const outDir = join(root, 'extensions', 'datetime-utilities', 'icons')
 
 // Brand colors: amber rounded square with a dark clock face and hands.
 const BG = [232, 180, 90] // #e8b45a

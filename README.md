@@ -147,7 +147,7 @@ The production build is emitted to `dist/` as static Vite output.
 
 ### Browser extension (Chrome + Firefox)
 
-The same app can be packaged as a Manifest V3 browser extension. Clicking the toolbar icon opens the full app in a browser tab. See `extension/README.md` for the full build, load, and publish walkthrough.
+The same app can be packaged as a Manifest V3 browser extension. Clicking the toolbar icon opens the full app in a browser tab. See `extensions/developer-utilities/README.md` for the full build, load, and publish walkthrough.
 
 Build it:
 
@@ -155,24 +155,24 @@ Build it:
 bun run build:extension
 ```
 
-This generates the icon set and builds the app into `extension/app/`.
+This generates the icon set and builds the app into `extensions/developer-utilities/app/`.
 
 Load in Chrome:
 
 1. Open `chrome://extensions`.
 2. Enable **Developer mode**.
-3. Click **Load unpacked** and select the `extension/` folder.
+3. Click **Load unpacked** and select the `extensions/developer-utilities/` folder.
 
 Load in Firefox:
 
 1. Open `about:debugging#/runtime/this-firefox`.
-2. Click **Load Temporary Add-on** and select `extension/manifest.json`.
+2. Click **Load Temporary Add-on** and select `extensions/developer-utilities/manifest.json`.
 
-Before publishing, set your own `browser_specific_settings.gecko.id` in `extension/manifest.json` (Firefox) and register as a Chrome Web Store developer (one-time $5 fee). Firefox Add-ons publishing is free. Everything runs locally in the browser tab; the only optional remote resource is the Google Fonts import, which falls back to system fonts when unavailable.
+Before publishing, set your own `browser_specific_settings.gecko.id` in `extensions/developer-utilities/manifest.json` (Firefox) and register as a Chrome Web Store developer (one-time $5 fee). Firefox Add-ons publishing is free. Everything runs locally in the browser tab; the only optional remote resource is the Google Fonts import, which falls back to system fonts when unavailable.
 
 ### Date & time extension (Chrome + Firefox)
 
-The Date & time workspace can also be packaged as its own standalone Manifest V3 extension. Clicking its toolbar icon opens the epoch/timezone/unit desk in a browser tab. See `datetime-extension/README.md` for the full build, load, and publish walkthrough.
+The Date & time workspace can also be packaged as its own standalone Manifest V3 extension. Clicking its toolbar icon opens the epoch/timezone/unit desk in a browser tab. See `extensions/datetime-utilities/README.md` for the full build, load, and publish walkthrough.
 
 Build it:
 
@@ -180,7 +180,7 @@ Build it:
 bun run build:datetime-extension
 ```
 
-This generates the icon set and builds the workspace into `datetime-extension/app/`.
+This generates the icon set and builds the workspace into `extensions/datetime-utilities/app/`.
 
 Build both extensions at once:
 
@@ -188,7 +188,7 @@ Build both extensions at once:
 bun run build:extensions
 ```
 
-Load it the same way as above, selecting the `datetime-extension/` folder (Chrome) or `datetime-extension/manifest.json` (Firefox).
+Load it the same way as above, selecting the `extensions/datetime-utilities/` folder (Chrome) or `extensions/datetime-utilities/manifest.json` (Firefox).
 
 ## Environment variables
 
@@ -212,17 +212,19 @@ There are no secrets, API keys, database connections, or service credentials use
 │   ├── main.tsx                 # React entrypoint
 │   ├── datetime-main.tsx        # React entrypoint for the date/time extension
 │   └── vite-env.d.ts             # Vite client type declarations
-├── extension/
-│   ├── manifest.json             # Chrome + Firefox (MV3) manifest
-│   ├── background.js             # Toolbar click → open app in a tab
-│   ├── icons/                    # Generated icon set (gitignored)
-│   └── app/                      # Built extension page (gitignored)
-├── datetime-extension/
-│   ├── manifest.json             # Chrome + Firefox (MV3) manifest (date/time)
-│   ├── background.js             # Toolbar click → open date/time desk in a tab
-│   ├── README.md                 # Build, load, and publish walkthrough
-│   ├── icons/                    # Generated icon set (gitignored)
-│   └── app/                      # Built extension page (gitignored)
+├── extensions/
+│   ├── developer-utilities/     # Main Developer Utilities extension
+│   │   ├── manifest.json        # Chrome + Firefox (MV3) manifest
+│   │   ├── background.js        # Toolbar click → open app in a tab
+│   │   ├── README.md            # Build, load, and publish walkthrough
+│   │   ├── icons/               # Generated icon set (gitignored)
+│   │   └── app/                 # Built extension page (gitignored)
+│   └── datetime-utilities/      # Standalone Date & Time extension
+│       ├── manifest.json        # Chrome + Firefox (MV3) manifest (date/time)
+│       ├── background.js        # Toolbar click → open date/time desk in a tab
+│       ├── README.md            # Build, load, and publish walkthrough
+│       ├── icons/               # Generated icon set (gitignored)
+│       └── app/                 # Built extension page (gitignored)
 ├── scripts/
 │   ├── generate-icons.mjs        # Generates the main extension PNG icons
 │   └── generate-datetime-icons.mjs  # Generates the date/time extension PNG icons

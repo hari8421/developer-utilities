@@ -17,17 +17,17 @@ bun run build:datetime-extension
 
 This does two things:
 
-1. Generates the icon set into `datetime-extension/icons/` (`icon-16.png`, `icon-48.png`, `icon-128.png`).
-2. Builds the date/time workspace into `datetime-extension/app/` with relative asset paths (`./assets/...`) so it loads from a `chrome-extension://` or `moz-extension://` origin.
+1. Generates the icon set into `extensions/datetime-utilities/icons/` (`icon-16.png`, `icon-48.png`, `icon-128.png`).
+2. Builds the date/time workspace into `extensions/datetime-utilities/app/` with relative asset paths (`./assets/...`) so it loads from a `chrome-extension://` or `moz-extension://` origin.
 
-> `datetime-extension/app/` and `datetime-extension/icons/` are generated output and are gitignored — they must be regenerated before loading the extension.
+> `extensions/datetime-utilities/app/` and `extensions/datetime-utilities/icons/` are generated output and are gitignored — they must be regenerated before loading the extension.
 
 ## Load in Chrome / Edge / Brave
 
 1. Run `bun run build:datetime-extension`.
 2. Open `chrome://extensions`.
 3. Toggle **Developer mode** on (top-right).
-4. Click **Load unpacked** and select the `datetime-extension/` folder (the one containing `manifest.json`).
+4. Click **Load unpacked** and select the `extensions/datetime-utilities/` folder (the one containing `manifest.json`).
 5. Click the puzzle-piece icon in the toolbar and pin **Date & Time Utilities**.
 6. Click the toolbar icon — the date/time desk opens in a new tab.
 
@@ -37,7 +37,7 @@ To pick up changes, re-run `bun run build:datetime-extension`, then click the ci
 
 1. Run `bun run build:datetime-extension`.
 2. Open `about:debugging#/runtime/this-firefox`.
-3. Click **Load Temporary Add-on…** and select `datetime-extension/manifest.json`.
+3. Click **Load Temporary Add-on…** and select `extensions/datetime-utilities/manifest.json`.
 4. Click the toolbar icon — the date/time desk opens in a new tab.
 
 Temporary add-ons are removed when Firefox restarts. Re-run the build and reload the add-on to pick up changes.
@@ -47,20 +47,20 @@ Temporary add-ons are removed when Firefox restarts. Re-run the build and reload
 ### Chrome Web Store
 
 1. Run `bun run build:datetime-extension`.
-2. Zip the **contents** of `datetime-extension/` (so `manifest.json` is at the zip root).
+2. Zip the **contents** of `extensions/datetime-utilities/` (so `manifest.json` is at the zip root).
 3. Upload at the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole) (one-time $5 registration fee).
 
 ### Firefox Add-ons (AMO)
 
-1. Set your own `browser_specific_settings.gecko.id` in `datetime-extension/manifest.json` (replace `datetime-utilities@yourdomain.com`).
+1. Set your own `browser_specific_settings.gecko.id` in `extensions/datetime-utilities/manifest.json` (replace `datetime-utilities@yourdomain.com`).
 2. Run `bun run build:datetime-extension`.
-3. Zip the **contents** of `datetime-extension/`.
+3. Zip the **contents** of `extensions/datetime-utilities/`.
 4. Submit at [addons.mozilla.org](https://addons.mozilla.org/developers/) (free).
 
 ## Folder layout
 
 ```text
-datetime-extension/
+extensions/datetime-utilities/
 ├── manifest.json        # MV3 manifest (Chrome + Firefox)
 ├── background.js        # Toolbar click → open the date/time desk in a tab
 ├── README.md            # This file
@@ -68,7 +68,7 @@ datetime-extension/
 │   ├── icon-16.png
 │   ├── icon-48.png
 │   └── icon-128.png
-└── app/                       # Built workspace (gitignored)
+└── app/                 # Built workspace (gitignored)
     ├── datetime-extension.html
     └── assets/
 ```
