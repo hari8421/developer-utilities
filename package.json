@@ -7,7 +7,10 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "generate:icons": "bun scripts/generate-icons.mjs",
+    "generate:datetime-icons": "bun scripts/generate-datetime-icons.mjs",
     "build:extension": "bun run generate:icons && vite build --config vite.extension.config.ts",
+    "build:datetime-extension": "bun run generate:datetime-icons && vite build --config vite.datetime-extension.config.ts",
+    "build:extensions": "bun run build:extension && bun run build:datetime-extension",
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {

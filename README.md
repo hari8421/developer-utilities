@@ -169,6 +169,26 @@ Load in Firefox:
 
 Before publishing, set your own `browser_specific_settings.gecko.id` in `extension/manifest.json` (Firefox) and register as a Chrome Web Store developer (one-time $5 fee). Firefox Add-ons publishing is free. Everything runs locally in the browser tab; the only optional remote resource is the Google Fonts import, which falls back to system fonts when unavailable.
 
+### Date & time extension (Chrome + Firefox)
+
+The Date & time workspace can also be packaged as its own standalone Manifest V3 extension. Clicking its toolbar icon opens the epoch/timezone/unit desk in a browser tab. See `datetime-extension/README.md` for the full build, load, and publish walkthrough.
+
+Build it:
+
+```bash
+bun run build:datetime-extension
+```
+
+This generates the icon set and builds the workspace into `datetime-extension/app/`.
+
+Build both extensions at once:
+
+```bash
+bun run build:extensions
+```
+
+Load it the same way as above, selecting the `datetime-extension/` folder (Chrome) or `datetime-extension/manifest.json` (Firefox).
+
 ## Environment variables
 
 No environment variables are required.
@@ -189,18 +209,28 @@ There are no secrets, API keys, database connections, or service credentials use
 │   ├── App.tsx                  # Top-level utility switcher
 │   ├── index.css                # Shared theme plus all three utility workspaces
 │   ├── main.tsx                 # React entrypoint
+│   ├── datetime-main.tsx        # React entrypoint for the date/time extension
 │   └── vite-env.d.ts             # Vite client type declarations
 ├── extension/
 │   ├── manifest.json             # Chrome + Firefox (MV3) manifest
 │   ├── background.js             # Toolbar click → open app in a tab
 │   ├── icons/                    # Generated icon set (gitignored)
 │   └── app/                      # Built extension page (gitignored)
+├── datetime-extension/
+│   ├── manifest.json             # Chrome + Firefox (MV3) manifest (date/time)
+│   ├── background.js             # Toolbar click → open date/time desk in a tab
+│   ├── README.md                 # Build, load, and publish walkthrough
+│   ├── icons/                    # Generated icon set (gitignored)
+│   └── app/                      # Built extension page (gitignored)
 ├── scripts/
-│   └── generate-icons.mjs        # Generates the extension PNG icons
+│   ├── generate-icons.mjs        # Generates the main extension PNG icons
+│   └── generate-datetime-icons.mjs  # Generates the date/time extension PNG icons
 ├── index.html                    # Vite HTML entrypoint and page metadata
+├── datetime-extension.html       # Vite HTML entrypoint for the date/time extension
 ├── package.json                  # Scripts and dependencies
 ├── vite.config.ts                # React-enabled Vite configuration
-├── vite.extension.config.ts      # Relative-base build for the extension
+├── vite.extension.config.ts      # Relative-base build for the main extension
+├── vite.datetime-extension.config.ts  # Relative-base build for the date/time extension
 ├── tsconfig*.json                # TypeScript project configuration
 └── .gitignore                    # Dependency, build, and environment ignores
 ```

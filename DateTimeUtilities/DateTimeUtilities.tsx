@@ -95,7 +95,7 @@ function group(n: number) {
   return Math.round(n).toLocaleString('en-US')
 }
 
-function DateTimeUtilities({ onBack }: { onBack: () => void }) {
+function DateTimeUtilities({ onBack }: { onBack?: () => void }) {
   const [mode, setMode] = useState<Mode>('epoch')
   const [epochValue, setEpochValue] = useState(() => String(Math.floor(Date.now() / 1000)))
   const [epochUnit, setEpochUnit] = useState<'s' | 'ms'>('s')
@@ -174,7 +174,9 @@ function DateTimeUtilities({ onBack }: { onBack: () => void }) {
       <div className="time-glow time-glow-a" />
       <div className="time-glow time-glow-b" />
       <header className="time-topbar">
-        <button className="time-back" onClick={onBack} type="button"><span className="time-back-arrow" aria-hidden="true">←</span><span className="time-back-label">Back to JSON Utilities</span></button>
+        {onBack && (
+          <button className="time-back" onClick={onBack} type="button"><span className="time-back-arrow" aria-hidden="true">←</span><span className="time-back-label">Back to JSON Utilities</span></button>
+        )}
         <div className="time-brand" aria-label="Developer utilities"><span className="time-brand-mark">⌘</span><span>developer<span>utilities</span></span></div>
         <div className="time-breadcrumb"><span>TOOLS</span><i>/</i><strong>DATETIME-UTILITIES</strong></div>
         <div className="time-local"><span /> browser-only</div>
@@ -304,7 +306,7 @@ function DateTimeUtilities({ onBack }: { onBack: () => void }) {
           <article><span>03</span><div><h3>Offsets shift</h3><p>Wall-clock offsets change with daylight saving. The converter uses the browser's IANA database, so historical and future dates follow real rules.</p></div></article>
         </section>
       </main>
-      <footer className="time-footer"><button onClick={onBack}>← JSON Utilities</button><span>Browser-native Intl · no server · no account</span><span>developer-utilities / datetime-utilities</span></footer>
+      <footer className="time-footer">{onBack ? <button onClick={onBack}>← JSON Utilities</button> : <span />}<span>Browser-native Intl · no server · no account</span><span>developer-utilities / datetime-utilities</span></footer>
     </div>
   )
 }

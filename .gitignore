@@ -8,3 +8,5 @@ dist/
 # Browser extension build output
 extension/app/
 extension/icons/
+datetime-extension/app/
+datetime-extension/icons/
