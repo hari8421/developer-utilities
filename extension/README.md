@@ -1,6 +1,6 @@
 # Developer Utilities — Browser Extension
 
-Chrome and Firefox (Manifest V3) packaging for the [Developer Utilities](../README.md) app. Clicking the toolbar icon opens the full app — JSON formatting, validation, comparison, Base64, AES encryption/decryption, and SHA-256 hashing — in a browser tab, entirely local to your machine.
+Chrome and Firefox (Manifest V3) packaging for the [Developer Utilities](../README.md) app. Clicking the toolbar icon opens the full app — JSON formatting, validation, comparison, Base64, AES encryption/decryption, SHA-256 hashing, and date & time tools (epoch, timezones, duration units, date arithmetic) — in a browser tab, entirely local to your machine.
 
 ## Prerequisites
 

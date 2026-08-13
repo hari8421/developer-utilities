@@ -3,7 +3,7 @@
   "name": "Developer Utilities",
   "short_name": "Dev Utilities",
   "version": "1.0.1",
-  "description": "JSON formatting, validation, and comparison plus Base64, AES encryption/decryption, and SHA-256 hashing — 100% local.",
+  "description": "JSON formatting, validation, and comparison plus Base64, AES encryption/decryption, SHA-256 hashing, and date & time tools — 100% local.",
   "action": {
     "default_title": "Open Developer Utilities",
     "default_icon": {
